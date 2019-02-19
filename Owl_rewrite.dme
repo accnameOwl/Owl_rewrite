@@ -1,0 +1,11 @@
+#define FILE_DIR .
+
+#define FILE_DIR "assets"
+
+#define FILE_DIR "lib"
+#define FILE_DIR "static"
+#define FILE_DIR "static/world"
+#define FILE_DIR "static/mob"
+#define FILE_DIR "static/obj"
+#define FILE_DIR "static/turf"
+

@@ -2,7 +2,7 @@ vect2
 	var
 		x
 		y
-	
+
 	New(x, y)
 		src.x = x
 		src.y = y
@@ -12,7 +12,7 @@ vect3
 		x
 		y
 		z
-	
+
 	New(x,y,z)
 		src.x = x
 		src.y = y
@@ -35,12 +35,12 @@ vect2
 		Add(vect2/a, vect2/b)
 			return vect2(a.x + b.x, a.y + b.y)
 		//subtract vector b from vector a
-		Subtract(vect2/a. vect2/b)
+		Subtract(vect2/a, vect2/b)
 			return vect2(a.x - b.x, a.y - b.y)
-		
+
 		Multiply(vect2/a, vect2/b)
 			return vect2(a.x * b.x, a.y * b.y)
-		
+
 		Divite(vect2/a, vect2/b)
 			return vect2(a.x / b.x, a.y / b.y)
 
@@ -53,12 +53,12 @@ vect3
 		Add(vect3/a, vect3/b)
 			return vect3(a.x + b.x, a.y + b.y, a.z + b.z)
 		//subtract vector b from vector a
-		Subtract(vect3/a. vect3/b)
+		Subtract(vect3/a, vect3/b)
 			return vect3(a.x - b.x, a.y - b.y, a.z - b.z)
-		
+
 		Multiply(vect3/a, vect3/b)
 			return vect3(a.x * b.x, a.y * b.y, a.z * b.z)
-		
+
 		Divite(vect3/a, vect3/b)
 			return vect3(a.x / b.x, a.y / b.y, a.z / b.z)
 

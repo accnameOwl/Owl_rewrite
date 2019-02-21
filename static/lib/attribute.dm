@@ -1,7 +1,7 @@
 #ifndef lib_attribute
 	#define lib_attribute
 
-attribute  
+attribute
 	var
 		const
 			LIMIT_GAIN_RATE = 1
@@ -15,7 +15,7 @@ attribute
 		xp_total = 0
 		limit_gain_rate = LIMIT_GAIN_RATE
 		xp_gain_rate = XP_GAIN_RATE
-	
+
 	New(name, value = 0, level = 1, xp_next = 100, limit_gain_rate = LIMIT_GAIN_RATE, xp_gain_rate = XP_GAIN_RATE)
 		src.name = name
 		src.value = value
@@ -46,10 +46,11 @@ attribute
 		setXpGainRate(val)
 			if(val) xp_gain_rate = val
 			else throw EXCEPTION("src: [src] - Expecting argument: setXpGainRate(val)")
-		
+
 		getName() return name;
 		getValue() return value;
 		getLevel() return level;
+		getLimit() return limit;
 		getXp() return xp;
 		getXpNext() return xp_next;
 		getLimitGainRate() return limit_gain_rate;

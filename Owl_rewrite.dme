@@ -9,3 +9,20 @@
 #define FILE_DIR "static/obj"
 #define FILE_DIR "static/turf"
 
+// BEGIN_INTERNALS
+// END_INTERNALS
+// BEGIN_FILE_DIR
+#define FILE_DIR .
+// END_FILE_DIR
+// BEGIN_PREFERENCES
+// END_PREFERENCES
+// BEGIN_INCLUDE
+#include "static\lib\attribute.dm"
+#include "static\lib\hypot.dm"
+#include "static\lib\vect.dm"
+#include "static\mob\mob.dm"
+#include "static\mob\mob_npc.dm"
+#include "static\mob\mob_player.dm"
+#include "static\obj\obj.dm"
+#include "static\world\world_runtime.dm"
+// END_INCLUDE

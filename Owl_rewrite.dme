@@ -8,6 +8,7 @@
 #define FILE_DIR "static/mob"
 #define FILE_DIR "static/obj"
 #define FILE_DIR "static/turf"
+#define FILE_DIR "static/resist"
 
 // BEGIN_INTERNALS
 // END_INTERNALS
@@ -25,4 +26,5 @@
 #include "static\mob\mob_player.dm"
 #include "static\obj\obj.dm"
 #include "static\world\world_runtime.dm"
+#include "static\resist\resist.dm"
 // END_INCLUDE

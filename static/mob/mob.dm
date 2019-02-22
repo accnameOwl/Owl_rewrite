@@ -14,7 +14,7 @@ mob
 		in_combat = FALSE
 
 	//onDeath()
-	proc/onDeath() // Called on death
+	proc/death() // Called on death
 		if(DEAD_INVISIBLE == TRUE) invisibility = 100
 		else invisibility = 0
 

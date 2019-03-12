@@ -15,28 +15,19 @@ mob
 
 	//onDeath()
 	proc/death() // Called on death
+
+		//turn invisible
 		if(DEAD_INVISIBLE == TRUE) invisibility = 100
 		else invisibility = 0
 
+		//remove density while dead
 		if(DEAD_DENSE == FALSE) density = 0
 		else density = 1
 
-		if(DEAD_SEE_INVISIBLE == TRUE)
-			/* Death sight*/
-			var/obj/sight/s = new()
-			//s.Blend(rgb(10,10,10, 100))
-			s.layer = 7
-			s.screen_loc = "SOUTHWEST to NORTHEAST"
-			client.screen += s
-
-			see_invisible = 100
-			dead_sees_invisible = TRUE
-		else
-			see_invisible = 0
-			dead_sees_invisible = FALSE
-
-		if(dead == TRUE && dead_can_respawn) spawn(dead_respawn_time) src.respawn()
 		dead = TRUE
+
+		//trigger respawntime
+		if(dead == TRUE && dead_can_respawn) spawn(dead_respawn_time) src.respawn()
 
 	//respawn()
 	proc/respawn()
@@ -56,7 +47,7 @@ mob
 			in_combat = TRUE
 		health.setValue( health.getValue() - damage)
 		if(!health_regen) health_regen()
-		if(health.getValue() <= 0) onDeath()
+		if(health.getValue() <= 0) death()
 
 	//health_regen()
 	proc/health_regen()

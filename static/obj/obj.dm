@@ -1,5 +1,6 @@
 obj/sight
 
 obj
-	Drop(mob/ref)
-		loc = ref
+	proc
+		Drop(mob/ref)
+			loc = ref

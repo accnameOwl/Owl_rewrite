@@ -22,12 +22,12 @@
 #include "static\define.dm"
 #include "static\lib\attribute.dm"
 #include "static\lib\hypot.dm"
+#include "static\lib\item_drop.dm"
 #include "static\lib\vect.dm"
 #include "static\mob\mob.dm"
 #include "static\mob\mob_npc.dm"
 #include "static\mob\mob_player.dm"
 #include "static\obj\obj.dm"
-#include "static\obj\item\item.dm"
 #include "static\resist\resist.dm"
 #include "static\world\world_runtime.dm"
 // END_INCLUDE

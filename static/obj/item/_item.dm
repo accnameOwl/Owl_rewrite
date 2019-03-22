@@ -57,5 +57,20 @@ item
 					m.Equipment_weaponslot = src
 					itemStats_addTo(wielder)
 
+		Unequip(mob/m)
+			if(!m) return
+			switch(item_slot)
+				if(1)
+					m.Equipment_headslot = null
+					itemStats_remTo(wielder)
+				if(2)
+					m.Equipment_chestslot = null
+					itemStats_remTo(wielder)
+				if(3)
+					m.Equipment_legslot = null
+					itemStats_remTo(wielder)
+				if(4)
+					m.Equipment_weaponslot = null
+					itemStats_remTo(wielder)
 		Drop(mob/ref)
 			loc = ref

@@ -32,6 +32,7 @@
 #include "static\mob\combat.dm"
 #include "static\mob\npc\_npc.dm"
 #include "static\mob\player\_player.dm"
+#include "static\mob\equipment.dm"
 #include "static\obj\_obj.dm"
 #include "static\obj\item\_item.dm"
 #include "static\obj\item\item_stat.dm"

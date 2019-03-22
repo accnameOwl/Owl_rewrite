@@ -9,6 +9,9 @@ mob/New()
 
 mob/proc
 	/* @info COMBAT GET*/
+	stats_get_name(mob/M, attribute)
+		var/attribute/A = M.COMBAT_STATS && M.COMBAT_STATS[attribute]
+		return A ? A.name : 0
 	stats_get_value(mob/M, attribute)
 		var/attribute/A = M.COMBAT_STATS && M.COMBAT_STATS[attribute]
 		return A ? A.value : 0
@@ -40,6 +43,32 @@ mob/proc
 	stats_set_requiredexperience(mob/M, attribute, experience)
 		var/attribute/A = M.COMBAT_STATS && M.COMBAT_STATS[attribute]
 		if(A && experience) A.xp_next = experience
+	/*@info COMBAT ADD*/
+	stats_add_value(mob/M, attribute, value)
+		var/attribute/A = M.COMBAT_STATS && M.COMBAT_STATS[attribute]
+		if(A && value) A.value += value
+	stats_add_limit(mob/M, attribute, limit)
+		var/attribute/A = M.COMBAT_STATS && M.COMBAT_STATS[attribute]
+		if(A && limit) A.limit += limit
+	stats_add_experience(mob/M, attribute, experience)
+		var/attribute/A = M.COMBAT_STATS && M.COMBAT_STATS[attribute]
+		if(A && experience) A.xp += experience
+	stats_add_requiredexperience(mob/M, attribute, experience)
+		var/attribute/A = M.COMBAT_STATS && M.COMBAT_STATS[attribute]
+		if(A && experience) A.xp_next += experience
+	/*@info COMBAT SUBTRACT*/
+	stats_subtract_value(mob/M, attribute, value)
+		var/attribute/A = M.COMBAT_STATS && M.COMBAT_STATS[attribute]
+		if(A && value) A.value -= value
+	stats_subtract_limit(mob/M, attribute, limit)
+		var/attribute/A = M.COMBAT_STATS && M.COMBAT_STATS[attribute]
+		if(A && limit) A.limit -= limit
+	stats_subtract_experience(mob/M, attribute, experience)
+		var/attribute/A = M.COMBAT_STATS && M.COMBAT_STATS[attribute]
+		if(A && experience) A.xp -= experience
+	stats_subtract_requiredexperience(mob/M, attribute, experience)
+		var/attribute/A = M.COMBAT_STATS && M.COMBAT_STATS[attribute]
+		if(A && experience) A.xp_next -= experience
 
 	stats_gain_experience(mob/M, attribute, amount)
 		var/attribute/A =M.COMBAT_STATS && M.COMBAT_STATS[attribute]

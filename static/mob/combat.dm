@@ -44,6 +44,7 @@ mob/proc
 
 	COMBAT_ON_DAMAGE(mob/m, damage, ref)
 		if(istype(ref, /mob/player) || istype(ref, /mob/npc))
+			if(m:combat_dead) return
 			m:combat_inCombat = TRUE
 		stats_set_value( round(stats_get_value(m,"health") - damage))
 //		m.health.setValue( health.getValue/( damage))

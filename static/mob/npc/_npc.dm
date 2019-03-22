@@ -14,11 +14,11 @@ mob/npc
 				o.Drop(src)
 			loot_array = null
 		..()
-
+/* 
 	COMBAT_ON_RESPAWN() ..()
 	COMBAT_ON_DAMAGE() ..()
 	COMBAT_ON_REGEN() ..()
-
+ */
 	/***************
 
 	DROP & LOOT FUNCTIONALITY

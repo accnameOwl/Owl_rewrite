@@ -20,27 +20,35 @@ item
 		src.name = name
 		src.itemLevel = itemLevel
 	proc
-		stat_list_add(name, value)
-			stat_list.Add(new/item_stat(name, value))
+		stat_list_add()
+			for(var/item_stat/__is in args)
+				calculate_stat(__is)
+				stat_list.Add(__is)
+
 		stat_list_remove(item_stat/__stat)
 			stat_list.Remove(__stat)
 
 		calculate_stat(item_stat/__stat)
 			if(!__stat) return
 
-			var/math = __stat.get_value() * src.itemLevel
-			__stat.set_value(math)
+			var/math = __stat.get_value() * (src.itemLevel/100)
+			__stat.set_value(round(math))
 
 		itemStats_addTo(mob/m)
+			//cycle through all stats for item
 			for(var/item_stat/__is in stat_list)
-				if(!m.COMBAT_STATS.Find(m.stats_get_name(m,__is.name))) throw EXCEPTION("Could not find item_stat in mobs statlist")
-				m.stats_add_value(m, __is.name, __is.get_value())
+				//if stat found is unliable with wielders stats, throw exception and cancle function
+				if(!m.COMBAT_STATS.Find(__is.stats_get_name(m,__is.name))) 
+					throw EXCEPTION("Could not find item_stat in mobs statlist")
+				//Give wielder stats corresponding to it's stat
+				__is.stats_add_value(m, __is.name, __is.get_value())
 		itemStats_remTo(mob/m)
 			for(var/item_stat/__is in stat_list)
-				if(!m.COMBAT_STATS.Find(m.stats_get_name(m,__is.name))) throw EXCEPTION("Could not find item_stat in mobs statlist")
+				if(!m.COMBAT_STATS.Find(m.stats_get_name(m,__is.name))) return throw EXCEPTION("Could not find item_stat in mobs statlist")
 				m.stats_subtract_value(m, __is.name, __is.get_value())
 
-
+		//Function for equipping said item to wielder
+		//arg should always be wielder
 		Equip(mob/m)
 			if(!m) return
 			switch(item_slot)

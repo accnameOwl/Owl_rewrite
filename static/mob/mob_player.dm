@@ -19,11 +19,11 @@ mob
 mob
 	/*stats*/
 	var
-		attribute/level = new/attribute("level", 1, 1, 100, 1, 1.4)
-		attribute/health = new/attribute("health", 20, 1, 100, 1.2, 1.4)
-		attribute/stamina = new/attribute("stamina",10, 1, 100, 1.2, 1.4)
-		attribute/regen = new/attribute("regen", 1, 1, 100, 1.2, 1.4)
-		attribute/strength = new/attribute("strength", 1, 1, 100, 1.2, 1.4)
+		attribute/level = new("level", 1, 1, 100, 1, 1.4)
+		attribute/health = new("health", 20, 1, 100, 1.2, 1.4)
+		attribute/stamina = new("stamina",10, 1, 100, 1.2, 1.4)
+		attribute/regen = new("regen", 1, 1, 100, 1.2, 1.4)
+		attribute/strength = new("strength", 1, 1, 100, 1.2, 1.4)
 
 
 

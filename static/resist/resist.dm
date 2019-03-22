@@ -41,12 +41,12 @@ resist
 			r:name = name
 		set_element(resist/r, element)
 			r:element = element
- 		set_value(resist/r, value)
-		 	r:value = value
+		set_value(resist/r, value)
+			r:value = value
 		set_limit(resist/r, limit)
 			r:limit = limit
 
 		calc_percent(resist/r)
-			if(!istype(r, /resist))		return
+			if(!istype(r, /resist))	return
 			if(value && limit)
 				return value*math_multiplier/100

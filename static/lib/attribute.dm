@@ -1,6 +1,6 @@
 #ifndef lib_attribute
 	#define lib_attribute
-
+/*@info ATTRIBUTE CONSTRUCT*/
 attribute
 	var
 		const

@@ -6,7 +6,7 @@ mob/npc
 	/*combat*/
 	var/npc_invincible = FALSE
 
-	death()
+	COMBAT_ON_DEATH()
 		if(npc_invincible) return
 		if(loot_array.len)
 			for(var/i = 0, i <= loot_array.len, i++)
@@ -15,9 +15,9 @@ mob/npc
 			loot_array = null
 		..()
 
-	respawn() ..()
-	damage() ..()
-	health_regen() ..()
+	COMBAT_ON_RESPAWN() ..()
+	COMBAT_ON_DAMAGE() ..()
+	COMBAT_ON_REGEN() ..()
 
 	/***************
 

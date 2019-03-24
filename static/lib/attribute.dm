@@ -6,7 +6,7 @@ attribute
 		const
 			LIMIT_GAIN_RATE = 1
 			XP_GAIN_RATE = 1
-		name
+		name = ""
 		value = 0
 		limit = 0
 		level = 1

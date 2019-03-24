@@ -27,6 +27,13 @@ mob
 		//icon	= ''
 
 		see_invisible = 0
+
+	Login()
+		icon = 'icon.dmi'
+		icon_size = "32x32"
+		icon_state="base"
+		
+
 mob
 	COMBAT_ON_DEATH()
 		//Able to see invisible shit

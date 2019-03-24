@@ -40,18 +40,14 @@ mob/proc
 		if(m:combat_dead_seeInvisible) m:combat_dead_seeInvisible = FALSE
 
 		stats_set_value(m, "health",stats_get_limit(m, "health"))
-	//	else	m.health.setValue(health.getLimit())
-
 	COMBAT_ON_DAMAGE(mob/m, damage, ref)
 		if(istype(ref, /mob/player) || istype(ref, /mob/npc))
 			if(m:combat_dead) return
 			m:combat_inCombat = TRUE
 		stats_set_value( round(stats_get_value(m,"health") - damage))
-//		m.health.setValue( health.getValue/( damage))
 
 		if(!m:combat_healthRegen_trigger) COMBAT_ON_REGEN(m)
 		if(stats_get_value(m, "health") <= 0 ) COMBAT_ON_DEATH(m)
-//		if(m.health.getValue() <= 0) COMBAT_ON_DEATH(m)
 
 	COMBAT_ON_REGEN(mob/m)
 		if(!m:combat_healthRegen_trigger)
@@ -67,20 +63,21 @@ mob/proc
 					stats_set_value(m, "health", amount)
 					stats_gain_experience(m, "regen", 10)
 					sleep(sleeptime)
-/*
-					var/amount = m.health.getValue() + m.regen.getValue()
-					m.health.setValue(amount)
-					m.regen.gainXP(10)
-					sleep(sleeptime)
- */
 
 				if(m:combat_healthRegen_trigger && stats_get_value(m, "health") > stats_get_limit(m,"health"))
 					stats_set_value(stats_get_limit(m, "health"))
 					m:combat_healthRegen_trigger = !m:combat_healthRegen_trigger
 	
-	COMBAT_INVISIBLE(mob/m, flag)	
+	COMBAT_INVISIBLE(mob/m, flag)
 	
 		if(flag) m.invisibility = 100
 		else m.invisibility = 0
 
 		if(!flag) return m.invisibility
+
+//else
+
+/*Continuing*/
+
+/*@info mob/player ABILITIES*/
+mob/player

@@ -24,7 +24,7 @@ mob/proc
 	stats_get_experience(mob/M, attribute)
 		var/attribute/A = M.COMBAT_STATS && M.COMBAT_STATS[attribute]
 		return A ? A.xp : 0
-	STATS_GET_REQUIREDEXPERIENCE(mob/M, attribute)
+	stats_get_requiredexperience(mob/M, attribute)
 		var/attribute/A = M.COMBAT_STATS && M.COMBAT_STATS[attribute]
 		return A ? A.xp_next : 0
 	/*@info COMBAT SET*/
@@ -73,3 +73,12 @@ mob/proc
 	stats_gain_experience(mob/M, attribute, amount)
 		var/attribute/A =M.COMBAT_STATS && M.COMBAT_STATS[attribute]
 		if(A && amount) A.gainXp(amount)
+
+	stats_get_primarystat(mob/m)
+		var/attribute/A = m.COMBAT_STATS && M.COMBAT_STATS["intellect"]
+		var/attribute/B = m.COMBAT_STATS && M.COMBAT_STATS["strength"]
+		var/attribute/C = m.COMBAT_STATS && M.COMBAT_STATS["agility"]
+
+		if(A.value > B.value && A.value > C.value) return "intellect"
+		if(B.value > A.value && B.value > C.value) return "stength"
+		if(C.value > A.value && C.value > B.value) return "agility"

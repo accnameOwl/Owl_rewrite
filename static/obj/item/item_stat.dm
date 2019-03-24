@@ -1,9 +1,6 @@
 item_stat
-	parent_type = /item 
+	parent_type = /attribute
 
-	var
-		value = 0
-	
 	proc
 		get_value()
 			return value ? value : 0

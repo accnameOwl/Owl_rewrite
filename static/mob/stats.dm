@@ -74,10 +74,10 @@ mob/proc
 		var/attribute/A =M.COMBAT_STATS && M.COMBAT_STATS[attribute]
 		if(A && amount) A.gainXp(amount)
 
-	stats_get_primarystat(mob/m)
-		var/attribute/A = m.COMBAT_STATS && M.COMBAT_STATS["intellect"]
-		var/attribute/B = m.COMBAT_STATS && M.COMBAT_STATS["strength"]
-		var/attribute/C = m.COMBAT_STATS && M.COMBAT_STATS["agility"]
+	stats_get_primarystat(mob/M)
+		var/attribute/A = M.COMBAT_STATS && M.COMBAT_STATS["intellect"]
+		var/attribute/B = M.COMBAT_STATS && M.COMBAT_STATS["strength"]
+		var/attribute/C = M.COMBAT_STATS && M.COMBAT_STATS["agility"]
 
 		if(A.value > B.value && A.value > C.value) return "intellect"
 		if(B.value > A.value && B.value > C.value) return "stength"

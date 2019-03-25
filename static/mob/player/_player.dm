@@ -1,4 +1,3 @@
-#include "../_mob.dm"
 
 world
 
@@ -11,13 +10,13 @@ mob
 		New()
 			..()
 			COMBAT_STATS = list(\
-				new/attribute("health",10),
-				new/attribute("regen", 1),
-				new/attribute("mana", 3),
+				new/Stat("health",10),
+				new/Stat("regen", 1),
+				new/Stat("mana", 3),
 
-				new/attribute("strength", 1),
-				new/attribute("intellect", 1),
-				new/attribute("agility", 1),
+				new/Stat("strength", 1),
+				new/Stat("intellect", 1),
+				new/Stat("agility", 1),
 			)
 
 		/*pixel movement*/

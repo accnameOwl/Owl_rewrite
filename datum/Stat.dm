@@ -1,7 +1,6 @@
-#ifndef lib_attribute
-	#define lib_attribute
+
 /*@info ATTRIBUTE CONSTRUCT*/
-attribute
+Stat
 	var
 		const
 			LIMIT_GAIN_RATE = 1

@@ -1,17 +1,25 @@
 
 #define cT = 10
 
+#define COMBAT_ON_DEATH(mob)\
+	if(m)\
+		if(m.COMBAT_TURNINVISIBLEONDEATH) {COMBAT_INVISIBLE(mob)}
+
+#define COMBAT_START_INVISIBLE(mob)\
+	if()
+
 mob/combat/var
 	const
 		COMBAT_DEAD_DENSITY = 0
 		COMBAT_TURNINVISIBLEONDEATH = TRUE
 		COMBAT_DEAD_SEE_INVISIBLE = TRUE
-	combat_dead = FALSE
-	combat_dead_seeInvisible = TRUE
-	combat_dead_canRespawn = TRUE
-	combat_dead_respawnTime = 100
-	combat_healthRegen_trigger = FALSE
-	combat_inCombat = FALSE
+	tmp
+		combat_dead = FALSE
+		combat_dead_seeInvisible = TRUE
+		combat_dead_canRespawn = TRUE
+		combat_dead_respawnTime = 100
+		combat_healthRegen_trigger = FALSE
+		combat_inCombat = FALSE
 
 
 mob/proc
@@ -81,3 +89,15 @@ mob/proc
 
 /*@info mob/player ABILITIES*/
 mob/player
+
+
+mob
+
+	Move()
+	Bump()
+
+
+	proc
+
+		delete()
+			del(src)

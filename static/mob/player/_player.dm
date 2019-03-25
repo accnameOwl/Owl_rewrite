@@ -1,3 +1,5 @@
+#include "../_mob.dm"
+
 world
 
 	mob = /mob/player

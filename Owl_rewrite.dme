@@ -2,7 +2,7 @@
 
 #define FILE_DIR "assets"
 
-#define FILE_DIR "lib"
+#define FILE_DIR "datum"
 #define FILE_DIR "static"
 #define FILE_DIR "static/atom"
 #define FILE_DIR "static/world"
@@ -22,16 +22,24 @@
 // BEGIN_PREFERENCES
 // END_PREFERENCES
 // BEGIN_INCLUDE
+#include "datum\Damage.dm"
+#include "datum\hypot.dm"
+#include "datum\Log.dm"
+#include "datum\Stat.dm"
+#include "datum\Item.dm"
+#include "datum\vect.dm"
 #include "static\define.dm"
-#include "static\lib\attribute.dm"
 #include "static\lib\hypot.dm"
 #include "static\lib\item_drop.dm"
 #include "static\lib\vect.dm"
+
 #include "static\mob\_mob.dm"
-#include "static\mob\stats.dm"
-#include "static\mob\combat.dm"
 #include "static\mob\npc\_npc.dm"
 #include "static\mob\player\_player.dm"
+
+#include "static\mob\stats.dm"
+#include "static\mob\combat.dm"
+#include "static\mob\player\inventory.dm"
 #include "static\mob\equipment.dm"
 #include "static\obj\_obj.dm"
 #include "static\obj\item\_item.dm"

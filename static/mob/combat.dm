@@ -1,5 +1,8 @@
 
 #define cT = 10
+#define MOB_COMBAT_REGEN_START(mob)\
+#define MOB_COMBAT_REGEN_STOP(mob)\
+#define MOB_COMBAT_
 
 #define COMBAT_ON_DEATH(mob)\
 	if(m)\

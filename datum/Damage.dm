@@ -3,6 +3,7 @@
 
 
 Damage
+
 	var tmp
 		_damage
 
@@ -37,11 +38,3 @@ Damage
 			for(var/mob in __target_group)
 				if(!__immunity_group.Find(mob))
 					prefix.COMBAT_ON_DAMAGE(mob, Damage._damage)
-
-/*logs*/
-
-	()
-		.=..()
-		#ifdef LOG_COMBAT
-		log("")
-		#endif

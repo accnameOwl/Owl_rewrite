@@ -1,44 +1,77 @@
 mob/player
 
-	var/inventory[]
+	var/Inventory/inventory = new()
 
 	//inventory Functions
 	proc 
 		inventory_Find(mob/player/player, item/item)
-			if(player.inventory[item])
+			if(!player && !item) return FALSE
+			var/Inventory/__inventory = player.inventory
+			if(__inventory.Find(item))
 				return TRUE
 			return FALSE
 		
 		inventory_Add(mob/player/player, item/item)
 			if(!player && !item) return FALSE
-			player.inventory[item] = item
+			var/Inventory/__inventory = player.inventory
+			__inventory.Add(item)
 
 		inventory_Remove(mob/player/player, item/item)
 			if(!player && !item) return FALSE
-			if(player.inventory[item])
-				player.inventory[item] = null
+			var/Inventory/__inventory = player.inventory
+			if(__inventory.Find(item))
+				__inventory.Remove(item)
 
 		inventory_Replace(mob/player/player, item/olditem,item/newitem)
 			if(!player || !olditem || !newitem) return FALSE
-			var/mob/player/p
-			if(p.inventory_Find(player, olditem))
-				p:inventory_Remove(player, olditem)
-				p:inventory_Add(player, newitem)
+			var/Inventory/__inventory = player.inventory
+			if(__inventory.Find(olditem))
+				__inventory.Replace(olditem, newitem)
 
 		inventory_Recycle(mob/player/player)
-			var/temp[]
-			var/mob/player/p
-			for(var/item/i in player.inventory)
-				temp[i] = player.inventory[i]
-				p:inventory_Remove(player, i)
-			p:inventory_Clear(player)
-			for(var/item/i in temp)
-				p:inventory_Add(player, i)
+			if(!player) return
+			var/Inventory/__inventory = player.inventory
+			__inventory.Recycle()
 
 		inventory_Clear(mob/player/player)
-			player.inventory.Clear()
+			if(!player) return
+			var/Inventory/__inventory = player.inventory
+			__inventory.Clear()
 	
 	
 	//other
 	proc
 
+Inventory
+
+	var/content[]
+
+	proc
+		Find(item/item)
+			if(!item || !content.len[item]) return 
+			if(content[item]) 
+				return TRUE
+			else
+				return FALSE
+		Add(item/item)
+			if(!item || !content.len[item]) return 
+			content[item] = item
+			
+		Remove(item/item)
+			if(!item || !content.len[item]) return 
+			content[item] = null
+		Replace(item/olditem, item/newitem)
+			if(!olditem || !newitem || !content[olditem]) return
+			src.Remove(olditem)
+			src.Add(newitem)
+		Recycle()
+			var/tmp/temp[]
+			for(var/item/item in content)
+				temp[item] = content[item]
+				content.Remove(item)
+			for(var/item/item in temp)
+				src.Add(item)
+			
+		Clear()
+			var/empty[]
+			content = empty

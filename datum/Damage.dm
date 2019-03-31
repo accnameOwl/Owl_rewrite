@@ -33,8 +33,8 @@ Damage
 
 		Damage(Damage/Damage)
 			var/mob/prefix 
-			var/__target_group = Damage._target_group
-			var/__immunity_group = Damage._immunity_group
+			var/list/__target_group = Damage._target_group
+			var/list/__immunity_group = Damage._immunity_group
 			for(var/mob in __target_group)
 				if(!__immunity_group.Find(mob))
 					prefix.COMBAT_ON_DAMAGE(mob, Damage._damage)

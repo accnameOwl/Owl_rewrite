@@ -76,8 +76,8 @@ mob/proc
 
 	stats_get_primarystat(mob/M)
 		var/Stat/A = M.COMBAT_STATS && M.COMBAT_STATS["intellect"]
-		var/stat/B = M.COMBAT_STATS && M.COMBAT_STATS["strength"]
-		var/stat/C = M.COMBAT_STATS && M.COMBAT_STATS["agility"]
+		var/Stat/B = M.COMBAT_STATS && M.COMBAT_STATS["strength"]
+		var/Stat/C = M.COMBAT_STATS && M.COMBAT_STATS["agility"]
 
 		if(A.value > B.value && A.value > C.value) return "intellect"
 		if(B.value > A.value && B.value > C.value) return "stength"

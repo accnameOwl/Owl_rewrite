@@ -31,8 +31,8 @@ item
 		calculate_stat(item_stat/__stat)
 			if(!__stat) return
 
-			var/math = __stat.get_value() * (src.itemLevel/100)
-			__stat.set_value(round(math))
+			var/math = __stat.getValue() * (src.itemLevel/100)
+			__stat.setValue(round(math))
 
 		itemStats_addTo(mob/m)
 			//cycle through all stats for item
@@ -45,7 +45,7 @@ item
 		itemStats_remTo(mob/m)
 			for(var/item_stat/__is in stat_list)
 				if(!m.COMBAT_STATS.Find(m.stats_get_name(m,__is.name))) throw EXCEPTION("Could not find item_stat in mobs statlist")
-				else	m.stats_subtract_value(m, __is.name, __is.get_value())
+				else	m.stats_subtract_value(m, __is.name, __is.getValue())
 
 		//Function for equipping said item to wielder
 		//arg should always be wielder

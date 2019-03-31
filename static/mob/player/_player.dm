@@ -32,7 +32,7 @@ mob
 		Login()
 			..()
 
-mob
+mob/player
 	COMBAT_ON_DEATH()
 		//Able to see invisible shit
 		if(src:COMBAT_DEAD_SEE_INVISIBLE == TRUE)

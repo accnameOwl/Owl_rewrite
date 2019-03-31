@@ -22,16 +22,13 @@
 // BEGIN_PREFERENCES
 // END_PREFERENCES
 // BEGIN_INCLUDE
+
 #include "datum\Damage.dm"
 #include "datum\hypot.dm"
-#include "datum\Log.dm"
+//#include "datum\Log.dm"
 #include "datum\Stat.dm"
 #include "datum\Item.dm"
 #include "datum\vect.dm"
-#include "static\define.dm"
-#include "static\lib\hypot.dm"
-#include "static\lib\item_drop.dm"
-#include "static\lib\vect.dm"
 
 #include "static\mob\_mob.dm"
 #include "static\mob\npc\_npc.dm"

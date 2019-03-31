@@ -35,7 +35,7 @@ mob
 mob/player
 	COMBAT_ON_DEATH()
 		//Able to see invisible shit
-		if(src:COMBAT_DEAD_SEE_INVISIBLE == TRUE)
+		if(src.COMBAT_DEAD_SEE_INVISIBLE == TRUE)
 			/* Death sight*/
 			var/obj/sight/s = new()
 			//s.Blend(rgb(10,10,10, 100))
@@ -44,8 +44,8 @@ mob/player
 			client.screen += s
 
 			src.see_invisible = 100
-			src:combat_dead_seeInvisible = TRUE
+			src.combat_dead_seeInvisible = TRUE
 		else
-			src:see_invisible = 0
-			src:combat_dead_seeInvisible = FALSE
+			src.see_invisible = 0
+			src.combat_dead_seeInvisible = FALSE
 		..()

@@ -13,7 +13,8 @@ item
 		mob/wielder
 
 		//add attributes as stats in stat_l__statt
-		stat_list[]
+		stat_list[0]
+		effects[0]
 
 	New(name, itemLevel)
 		if(!name && !itemLevel) return ..()
@@ -80,5 +81,13 @@ item
 				if(4)
 					m.Equipment_weaponslot = null
 					itemStats_remTo(wielder)
+
+		Use(mob/ref)
+			if(!effects.len) return FALSE
+		/*	
+			for(var/Aura/__aura in effects)
+				ref.effects[__aura] = __aura
+		*/
+
 		Drop(mob/ref)
 			loc = ref

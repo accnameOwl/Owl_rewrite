@@ -48,8 +48,8 @@ mob/proc
 		if(m.combat_dead) m.combat_dead = FALSE
 
 		if(m.combat_dead_seeInvisible) m.combat_dead_seeInvisible = FALSE
-
 		stats_set_value(m, "health",stats_get_limit(m, "health"))
+		
 	COMBAT_ON_DAMAGE(mob/m, damage, ref)
 		if(istype(ref, /mob/player) || istype(ref, /mob/npc))
 			if(m.combat_dead) return

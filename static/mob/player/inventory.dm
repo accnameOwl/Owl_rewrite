@@ -53,6 +53,7 @@ Inventory
 				return TRUE
 			else
 				return FALSE
+
 		Add(item/item)
 			if(!item || !content.len[item]) return 
 			content[item] = item
@@ -60,10 +61,12 @@ Inventory
 		Remove(item/item)
 			if(!item || !content.len[item]) return 
 			content[item] = null
+
 		Replace(item/olditem, item/newitem)
 			if(!olditem || !newitem || !content[olditem]) return
 			src.Remove(olditem)
 			src.Add(newitem)
+
 		Recycle()
 			var/tmp/temp[]
 			for(var/item/item in content)
@@ -71,7 +74,7 @@ Inventory
 				content.Remove(item)
 			for(var/item/item in temp)
 				src.Add(item)
-			
+
 		Clear()
 			var/empty[]
 			content = empty

@@ -21,16 +21,16 @@ mob/npc
 
 	//clear droplist
 	proc
-		drop_array_clear()
+		loot_array_clear()
 			if(!loot_array.len) return null
 			loot_array = null
 
 		//return TRUE if any items exists in droplist
-		drop_array_check()
+		loot_array_check()
 			if(loot_array.len) return TRUE
 
 		//return params of npc_droplist
-		drop_array_list2params()
+		loot_array_list2params()
 			return list2params(loot_array)
 
 

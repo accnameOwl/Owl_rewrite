@@ -1,35 +1,35 @@
 
-world
-
-	mob = /mob/player
 
 
 mob
 
+	Login()
+		..()
+		src.loc = locate(1,1,1)
+		COMBAT_STATS = list(\
+			new/Stat("health",10),
+			new/Stat("regen", 1),
+			new/Stat("mana", 3),
+
+			new/Stat("strength", 1),
+			new/Stat("intellect", 1),
+			new/Stat("agility", 1),
+		)
+		src << list2params(COMBAT_STATS)
 	player
-		New()
-			..()
-			COMBAT_STATS = list(\
-				new/Stat("health",10),
-				new/Stat("regen", 1),
-				new/Stat("mana", 3),
-
-				new/Stat("strength", 1),
-				new/Stat("intellect", 1),
-				new/Stat("agility", 1),
-			)
-
-		/*pixel movement*/
-		bound_x = 4
-		bound_y = 2
-		bound_width = 14
-		bound_height = 12
-
-		//icon	= ''
 
 		see_invisible = 0
 
-		Login()
+		//Icon
+		icon = 'mob.dmi'
+		icon_state = "placeholder"
+		//Pixel Movement: Bounderies
+		bound_x = 4
+		bound_y = 4
+		bound_height = 24
+		bound_width = 24
+
+		New()
 			..()
 
 mob/player

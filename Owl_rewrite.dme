@@ -4,13 +4,13 @@
 
 #define FILE_DIR "datum"
 #define FILE_DIR "static"
-#define FILE_DIR "static/atom"
 #define FILE_DIR "static/world"
-#define FILE_DIR "static/mob"
-#define FILE_DIR "static/mob/npc"
-#define FILE_DIR "static/mob/player"
-#define FILE_DIR "static/obj"
-#define FILE_DIR "static/obj/item"
+#define FILE_DIR "static/atom"
+#define FILE_DIR "static/atom/mob"
+#define FILE_DIR "static/atom/mob/npc"
+#define FILE_DIR "static/atom/mob/player"
+#define FILE_DIR "static/atom/obj"
+#define FILE_DIR "static/atom/obj/item"
 #define FILE_DIR "static/turf"
 #define FILE_DIR "static/resist"
 
@@ -18,29 +18,36 @@
 // END_INTERNALS
 // BEGIN_FILE_DIR
 #define FILE_DIR .
+#define FILE_DIR "static"
+#define FILE_DIR "static/icons"
+#define FILE_DIR "static/icons/turf"
 // END_FILE_DIR
 // BEGIN_PREFERENCES
 // END_PREFERENCES
 // BEGIN_INCLUDE
-
 #include "datum\Damage.dm"
 #include "datum\hypot.dm"
-//#include "datum\Log.dm"
-#include "datum\Stat.dm"
 #include "datum\Item.dm"
+#include "datum\Stat.dm"
 #include "datum\vect.dm"
-
-#include "static\mob\_mob.dm"
-#include "static\mob\npc\_npc.dm"
-#include "static\mob\player\_player.dm"
-
-#include "static\mob\stats.dm"
-#include "static\mob\combat.dm"
-#include "static\mob\player\inventory.dm"
-#include "static\mob\equipment.dm"
-#include "static\obj\_obj.dm"
-#include "static\obj\item\_item.dm"
-#include "static\obj\item\item_stat.dm"
+#include "map\map.dmm"
+#include "static\define.dm"
+#include "static\atom\movable.dm"
+#include "static\atom\client\Click.dm"
+#include "static\atom\mob\_mob.dm"
+#include "static\atom\mob\combat.dm"
+#include "static\atom\mob\equipment.dm"
+#include "static\atom\mob\stats.dm"
+#include "static\atom\mob\npc\_npc.dm"
+#include "static\atom\mob\player\_player.dm"
+#include "static\atom\mob\player\inventory.dm"
+#include "static\atom\obj\_obj.dm"
+#include "static\atom\obj\abilities\_abilities.dm"
+#include "static\atom\obj\abilities\_projectile.dm"
+#include "static\atom\obj\item\_item.dm"
+#include "static\atom\obj\item\item_stat.dm"
+#include "static\interface\interface.dmf"
 #include "static\resist\resist.dm"
+#include "static\turf\dungeon_1.dm"
 #include "static\world\world_runtime.dm"
 // END_INCLUDE

@@ -6,13 +6,20 @@ world
 
 	/*runtime*/
 	status = "in development"
-	
+
 	fps = 60
 	icon_size = 32
 
-	view = 8
+	view = "32x20"
+
+	mob = /mob/player
 
 	New()
 		..()
+
+mob
+	step_size = 6
+obj
+	step_size = 6
 
 

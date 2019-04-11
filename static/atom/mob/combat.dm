@@ -20,7 +20,7 @@ mob/var
 
 mob/proc
 	COMBAT_INVISIBLE(mob/m, flag)
-	
+
 		if(flag == "true") m.invisibility = 100
 		if(flag == "false") m.invisibility = 0
 
@@ -49,7 +49,7 @@ mob/proc
 
 		if(m.combat_dead_seeInvisible) m.combat_dead_seeInvisible = FALSE
 		stats_set_value(m, "health",stats_get_limit(m, "health"))
-		
+
 	COMBAT_ON_DAMAGE(mob/m, damage, ref)
 		if(istype(ref, /mob/player) || istype(ref, /mob/npc))
 			if(m.combat_dead) return
@@ -77,7 +77,7 @@ mob/proc
 				if(m.combat_healthRegen_trigger && stats_get_value(m, "health") > stats_get_limit(m,"health"))
 					stats_set_value(stats_get_limit(m, "health"))
 					m.combat_healthRegen_trigger = !m.combat_healthRegen_trigger
-	
+
 
 //else
 
@@ -88,10 +88,10 @@ mob/player
 
 
 mob
-
+/*
 	Move()
 	Bump()
-
+*/
 
 	proc
 

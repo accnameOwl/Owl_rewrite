@@ -1,10 +1,12 @@
-/*
+
 client
-	var/tmp/walk_speed = 2
+	var/walk_speed = 2
 	Click(atom/clicked)
 		if(!clicked) return
-		walk_to(src, clicked, 1,0, walk_speed)
+
+		if(get_dist(src, clicked) == 0)
+			return 0
+		else
+			step_to(src, t,0,0)
 
 		src << clicked
-
-*/

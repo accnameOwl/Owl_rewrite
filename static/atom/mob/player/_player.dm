@@ -4,7 +4,6 @@
 mob
 
 	Login()
-		..()
 		src.loc = locate(1,1,1)
 		COMBAT_STATS = list(\
 			new/Stat("health",10),
@@ -16,6 +15,8 @@ mob
 			new/Stat("agility", 1),
 		)
 		src << list2params(COMBAT_STATS)
+		..()
+
 	player
 
 		see_invisible = 0
@@ -29,8 +30,6 @@ mob
 		bound_height = 24
 		bound_width = 24
 
-		New()
-			..()
 
 mob/player
 	COMBAT_ON_DEATH()

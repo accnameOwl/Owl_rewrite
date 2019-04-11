@@ -15,17 +15,17 @@ macro "macro"
 		name = "Northwest+REP"
 		command = ".northwest"
 	elem 
-		name = "West+REP"
+		name = "A+REP"
 		command = ".west"
 	elem 
-		name = "North+REP"
-		command = ".north"
-	elem 
-		name = "East+REP"
+		name = "D+REP"
 		command = ".east"
 	elem 
-		name = "South+REP"
+		name = "S+REP"
 		command = ".south"
+	elem 
+		name = "W+REP"
+		command = ".north"
 
 
 menu "menu"
@@ -58,6 +58,7 @@ window "default"
 		size = 1270x720
 		anchor1 = 0,0
 		anchor2 = 100,100
+		is-default = true
 		saved-params = "zoom;letterbox;zoom-mode"
 	elem "output1"
 		type = OUTPUT

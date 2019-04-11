@@ -46,7 +46,6 @@
 #include "static\atom\obj\abilities\_projectile.dm"
 #include "static\atom\obj\item\_item.dm"
 #include "static\atom\obj\item\item_stat.dm"
-#include "static\interface\interface.dmf"
 #include "static\resist\resist.dm"
 #include "static\turf\dungeon_1.dm"
 #include "static\world\world_runtime.dm"

@@ -1,4 +1,4 @@
-item
+Item
 	parent_type = /obj
 	var
 		itemLevel = 1
@@ -91,3 +91,4 @@ item
 
 		Drop(mob/ref)
 			loc = ref
+

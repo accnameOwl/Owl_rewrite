@@ -22,8 +22,8 @@ Log
 	
 	proc
 		Write()
-			if(!length(directory)) return
-			directory << text
+			if(!directory) return
+			directory << text + "\n"
 
 
 proc

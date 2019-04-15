@@ -6,13 +6,13 @@ mob
 	Login()
 		src.loc = locate(1,1,1)
 		COMBAT_STATS = list(\
-			new/Stat("health",10),
-			new/Stat("regen", 1),
-			new/Stat("mana", 3),
+			var/Stat/health = New("health",10),
+			var/Stat/regen = New("regen", 1),
+			var/Stat/mana = New("mana", 3),
 
-			new/Stat("strength", 1),
-			new/Stat("intellect", 1),
-			new/Stat("agility", 1),
+			var/Stat/strength = New("strength", 1),
+			var/Stat/intellect = New("intellect", 1),
+			var/Stat/agility = New("agility", 1),
 		)
 		src << list2params(COMBAT_STATS)
 		..()

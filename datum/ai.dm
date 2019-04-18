@@ -11,7 +11,7 @@ ai
 			for(var/mob/player/m in source.view(range))
 				if(!m) return FALSE
 				scan_list.Add(m)
-				sleep(tick_lag*10/world.fps)
+				sleep(tick_lag * 10)
 				return TRUE
 
 

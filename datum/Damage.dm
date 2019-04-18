@@ -10,9 +10,10 @@ Damage
 		_immunity_group[0]
 		_target_group[0]
 
-	New(mob/source)
+	New(mob/source, damage)
 		if(source && !_immunity_group[source]) AddImmunities(src, source)
-
+		if(damage)
+			_damage = damage
 	proc
 
 		GetImmunities(Damage/Damage)

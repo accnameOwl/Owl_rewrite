@@ -1,55 +1,17 @@
 # Owl_rewrite
-development repository for old gameproject
 
+ ### Future plans
 
-## object tree
+ - Immersive UI
+ - Guild & Party
+ - Questing
+ - Smartz AI
+ - Open world map
+ - Immersive Combat System
+   - Class related rotation
+   - Class skill trees
+   - Sphere grid
 
+### What has been done so far
 
-/mob
-
-    COMBAT_INVISIBLE(mob)
-    COMBAT_ON_DEATH(mob)
-    COMBAT_ON_RESPAWN(mob)
-    COMBAT_ON_DAMAGE(mob, damage, ref)
-    COMBAT_ON_REGEN(mob)
-    player
-        COMBAT_STATS()
-        Login() ..()
-        COMBAT_ON_DEATH() ..()
-        Inventory/inventory
-        inventory_Find(player, item)
-        inventory_Add(player, item)
-        inventory_Remove(player, item)
-        inventory_Replace(player, old_item, new_item)
-        inventory_Recycle(player)
-        inventory_Clear(player)
-    npc
-        COMBAT_ON_DEATH() ..()
-        loot_array[]
-        loot_array_clear()
-        loot_array_check()
-        loot_array_list2params()
-Inventory
-    content[]
-    Find(item)
-    Add(item)
-    Remove(item)
-    Replace(old_item, new_item)
-    Recycle()
-    Clear()
-item
-    itemLevel
-    durability
-    item_Slot
-    mob/wielder
-    stat_list[]
-    effects[]
-    stat_list_add(Stat)
-    stat_list_remove(Stat)
-    calculate_stat(Stat)
-    itemStats_addTo(wielder)
-    itemStats_remTo(wielder)
-    Equip(wielder)
-    Unequip(wielder)
-    Use(Wielder)
-    Drop(wielder)
+I have been working hard to learn as much as i can. I am by no means any good programmer so this has been a journey of experiences. I started a year a go with this project, and it was a casual learning project. It gradually evolved and i started to see so many aspects where i could improve the code. So i took my time to rewrite the project concept.

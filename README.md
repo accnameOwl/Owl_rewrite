@@ -1,16 +1,16 @@
 # Owl_rewrite
 
-> ### Future plans
->
-> - Immersive UI
-> - Guild & Party
-> - Questing
-> - Smartz AI
-> - Open world map
-> - Immersive Combat System
->   - Class related rotation
->   - Class skill trees
->   - Sphere grid
+ ### Future plans
+
+ - Immersive UI
+ - Guild & Party
+ - Questing
+ - Smartz AI
+ - Open world map
+ - Immersive Combat System
+   - Class related rotation
+   - Class skill trees
+   - Sphere grid
 
 ### What has been done so far
 

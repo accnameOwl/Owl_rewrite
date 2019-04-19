@@ -3,36 +3,35 @@ mob/player
 
 	verb
 		party_create()
+			if(party) src << "You are already in a party!"
 			party = new(src)
 			src.verbs += mob/player/party/party_remove()
 			src.verbs += mob/player/party/party_promote_to_leader()
 			src.verbs += mob/player/party/party_leave()
-			
-	party
-		verb 
-			party_invite(mob/player/m in world)
+	party/verb
+		party_invite(mob/player/m in world)
+			party.invite(m)
+			m.verbs += mob/player/party/party_requestInvite()
+		party_remove(mob/player/m in party.members)
+			party.members[m] = null
+			m.party = null
+		party_promote_to_leader(mob/player/m in party.members)
+			var/mob/player/leader = party.leader
+			leader.verbs += mob/player/party/party_promote_to_leader()
+			party.leader = m
+			m.verbs += mob/player/party/party_promote_to_leader()
+		party_requestInvite(mob/player/m in world)
+			var/acceptance = input(party.leader, "[src] requests [m] to join party", "yes", "no")
+			if(acceptance == "yes")
 				party.invite(m)
-				m.verbs += mob/player/party/party_requestInvite()
-			party_remove(mob/player/m in party.members)
-				party.members[m] = null
-				m.party = null
-			party_promote_to_leader(mob/player/m in party.members)
-				var/mob/player/leader = party.leader
-				leader.verbs += mob/player/party/party_promote_to_leader()
-				party.leader = m
-				m.verbs += mob/player/party/party_promote_to_leader()
-			party_requestInvite(mob/player/m in world)
-				var/acceptance = input(party.leader, "[src] requests [m] to join party", "yes", "no")
-				if(acceptance == "yes")
-					party.invite(m)
-				else
-					return
-			party_leave()
-				party.leader = party.members[2]
-				src.verbs -= mob/player/party/party_remove()
-				src.verbs -= mob/player/party/party_promote_to_leader()
-				src.verbs -= mob/player/party/party_leave()
-				src.party = null
+			else
+				return
+		party_leave()
+			party.leader = party.members[2]
+			src.verbs -= mob/player/party/party_remove()
+			src.verbs -= mob/player/party/party_promote_to_leader()
+			src.verbs -= mob/player/party/party_leave()
+			src.party = null
 
 
 

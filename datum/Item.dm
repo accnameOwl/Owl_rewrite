@@ -37,7 +37,6 @@ item
 
 		set_equipment()
 		set_resist(resist/r)
-
 		get_name() 	return name
 		get_rarity()	return rarity 
 		get_equipment() return equipment

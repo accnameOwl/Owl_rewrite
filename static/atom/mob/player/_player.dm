@@ -5,7 +5,7 @@ mob
 
 	Login()
 		src.loc = locate(1,1,1)
-		COMBAT_STATS = list(\
+		combat_stats = list(\
 			var/Stat/health = New("health",10),
 			var/Stat/regen = New("regen", 1),
 			var/Stat/mana = New("mana", 3),
@@ -14,7 +14,7 @@ mob
 			var/Stat/intellect = New("intellect", 1),
 			var/Stat/agility = New("agility", 1),
 		)
-		src << list2params(COMBAT_STATS)
+		src << list2params(combat_stats)
 		..()
 
 	player
@@ -32,9 +32,9 @@ mob
 
 
 mob/player
-	COMBAT_ON_DEATH()
+	combat_on_death()
 		//Able to see invisible shit
-		if(src.COMBAT_DEAD_SEE_INVISIBLE == TRUE)
+		if(src.combat_dead_seeInvisible == TRUE)
 			/* Death sight*/
 			var/obj/sight/s = new()
 			//s.Blend(rgb(10,10,10, 100))

@@ -16,26 +16,24 @@ Damage
 			_damage = damage
 	proc
 
-		GetImmunities(Damage/Damage)
+		getImmunities(Damage/Damage)
 			for(var/mob in Damage._immunity_group)
 				return mob
 
-		GetDamage(Damage/Damage)
+		getDamage(Damage/Damage)
 			if(!length(Damage._damage)) return 0
 			return Damage._damage
 
-		AddImmunities(Damage/Damage, mob/mob)
+		addImmunities(Damage/Damage, mob/mob)
 			if(!Damage || mob) return
 			Damage._immunity_group[mob] = mob
 
-		AddTarget(Damage/Damage, mob/mob)
+		addTarget(Damage/Damage, mob/mob)
 			if(!Damage || mob) return
 			Damage._target_group[mob] = mob
 
 		Damage(Damage/Damage)
 			var/mob/prefix 
-			var/list/__target_group = Damage._target_group
-			var/list/__immunity_group = Damage._immunity_group
-			for(var/mob in __target_group)
-				if(!__immunity_group.Find(mob))
+			for(var/mob in Damage._target_group)
+				if(!Damage._immunity_group.Find(mob))
 					prefix.COMBAT_ON_DAMAGE(mob, Damage._damage)

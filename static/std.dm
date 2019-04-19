@@ -19,5 +19,4 @@ proc
 	isplayer(a)	return istype(a,/mob/player) ? TRUE : FALSE
 	isnpc(a)	return istype(a, /mob/npc) ? TRUE : FALSE
 	isresist(a) return istype(a, /Resist) ? TRUE : FALSE
-
-	
+	ismonster(a) return istype(a, /mob/monster) ? TRUE : FALSE

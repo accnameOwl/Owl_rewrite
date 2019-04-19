@@ -19,29 +19,23 @@ mob/var
 
 
 mob/proc
-	COMBAT_INVISIBLE(mob/m, flag)
-
-		if(flag == "true") m.invisibility = 100
-		if(flag == "false") m.invisibility = 0
-
-		if(!flag) return m.invisibility
-	COMBAT_ON_DEATH(mob/m)
+	combat_invisible(mob/m, flag)
+		if(flag == null) return m.invisibility
+		if(flag == TRUE) m.invisibility = 100
+		if(flag == FALSE) m.invisibility = 0
+	combat_on_death(mob/m)
 		if(!m) return FALSE
 		//turn invisible
-		if(m.COMBAT_TURNINVISIBLEONDEATH) COMBAT_INVISIBLE(m, TRUE)
-		else m.COMBAT_INVISIBLE(m, FALSE)
-
-		if(m.COMBAT_DEAD_DENSITY == FALSE) m.density = 0
-		else	m.density = 1
-
+		if(m.COMBAT_TURNINVISIBLEONDEATH) combat_invisible(m, TRUE)
+		else m.combat_invisible(m, FALSE)
+		m.density = 0
 		m.combat_dead = TRUE
+		if(m.combat_dead == TRUE && m.combat_dead_canRespawn) spawn(m.combat_dead_respawnTime) m.combat_on_respawn()
 
-		if(m.combat_dead == TRUE && m.combat_dead_canRespawn) spawn(m.combat_dead_respawnTime) m.COMBAT_ON_RESPAWN()
 
+	combat_on_respawn(mob/m)
 
-	COMBAT_ON_RESPAWN(mob/m)
-
-		if(COMBAT_INVISIBLE(m)) COMBAT_INVISIBLE(m, "false")
+		if(combat_invisible(m)) combat_invisible(m, FALSE)
 
 		if(!m.density) m.density = 1
 
@@ -50,16 +44,16 @@ mob/proc
 		if(m.combat_dead_seeInvisible) m.combat_dead_seeInvisible = FALSE
 		stats_set_value(m, "health",stats_get_limit(m, "health"))
 
-	COMBAT_ON_DAMAGE(mob/m, damage, ref)
+	combat_on_damage(mob/m, damage, ref)
 		if(istype(ref, /mob/player) || istype(ref, /mob/npc))
 			if(m.combat_dead) return
 			m.combat_inCombat = TRUE
 		stats_set_value( round(stats_get_value(m,"health") - damage))
 
-		if(!m.combat_healthRegen_trigger) m.COMBAT_ON_REGEN(m)
-		if(stats_get_value(m, "health") <= 0 ) COMBAT_ON_DEATH(m)
+		if(!m.combat_healthRegen_trigger) m.combat_on_regen(m)
+		if(stats_get_value(m, "health") <= 0 ) combat_on_death(m)
 
-	COMBAT_ON_REGEN(mob/m)
+	combat_on_regen(mob/m)
 		if(!m.combat_healthRegen_trigger)
 
 			var/sleeptime = 20 - round(stats_get_level(m, "regen") / 2)
@@ -88,12 +82,6 @@ mob/player
 
 
 mob
-/*
-	Move()
-	Bump()
-*/
-
 	proc
-
-		delete()
-			del(src)
+		delete(mob/m)
+			m.loc = null

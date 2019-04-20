@@ -4,18 +4,8 @@
 mob
 
 	Login()
-		src.loc = locate(1,1,1)
-		combat_stats = list(\
-			var/Stat/health = New("health",10),
-			var/Stat/regen = New("regen", 1),
-			var/Stat/mana = New("mana", 3),
-
-			var/Stat/strength = New("strength", 1),
-			var/Stat/intellect = New("intellect", 1),
-			var/Stat/agility = New("agility", 1),
-		)
-		src << list2params(combat_stats)
 		..()
+		src.loc = locate(1,1,1)
 
 	player
 
@@ -30,6 +20,17 @@ mob
 		bound_height = 24
 		bound_width = 24
 
+		var
+			list
+				combat_stats = {(
+					"health" = var/Stat("health",10),
+					"regen" = var/Stat("regen", 1),
+					"mana" = var/Stat("mana", 3),
+
+					"strength" = var/Stat("strength", 1),
+					"intellect" = var/Stat("intellect", 1),
+					"agility" = var/Stat("agility", 1)
+				)}
 
 mob/player
 	combat_on_death()

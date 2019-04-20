@@ -33,6 +33,3 @@ mob/npc
 		//return params of npc_droplist
 		loot_array_list2params()
 			return list2params(loot_array)
-
-
-

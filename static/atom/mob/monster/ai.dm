@@ -1,5 +1,9 @@
 #define MAX_AGGRO_RANGE 12
 
+//Originally created by Ter
+//monster ai. 
+//AI detection happens in /mob/player/Moved() - File: _player.dm
+
 mob/monster
 	ai
 		var
@@ -47,7 +51,7 @@ mob/monster
 				set waitfor = 0
 				var/d = get_dist(src, target)
 				while(d > keep_dist)
-					if(get_dist(aggro_loc, src) > aggro_dist || stats_get_value(src,"health") <= 0)
+					if(get_dist(aggro_loc, src) > aggro_dist || !target.combat_dead)
 						src.lostTarget()
 						return
 					. = step(src, get_dir(src, target))

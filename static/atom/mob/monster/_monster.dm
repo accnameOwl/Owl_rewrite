@@ -9,3 +9,11 @@ mob/monster
 				"strength" = var/Stat("strength", 10),
 				"agility" = var/Stat("agility", 10)
 			)}
+
+	proc
+
+		attack(mob/player/p)
+
+
+		calculateDamage()
+			return

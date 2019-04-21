@@ -20,9 +20,9 @@ mob/monster
 		proc
 
 			foundTarget(var/mob/player/p)
-				if(!target && !target.combat_dead)
+				if(!target && !p.combat_dead)
 					target = p
-					aggro_dist = src.loc
+					aggro_loc = p.loc
 					src.chaseState()
 
 			lostTarget()

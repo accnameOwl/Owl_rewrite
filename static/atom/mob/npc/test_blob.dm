@@ -86,6 +86,5 @@ mob/npc
 		Punch(mob/m)
 			if(!m) return
 			flick("punch")
-			var/Damage/_damage = New(src)
-			_damage.AddTarget(m)
-			_damage.Damage(_damage, src.stats_get_value("strength"))
+			var/Damage = stats_get_value(src, "strength")
+			combat_on_damage(m, damage)

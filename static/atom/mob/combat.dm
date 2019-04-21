@@ -48,7 +48,9 @@ mob/proc
 		if(istype(ref, /mob/player) || istype(ref, /mob/npc))
 			if(m.combat_dead) return
 			m.combat_inCombat = TRUE
-		stats_set_value( round(stats_get_value(m,"health") - damage))
+		var/Resist/r = m.resist
+		var/mitigated = damage * (r.get_value()/100)
+		stats_set_value( round(stats_get_value(m,"health") - (damage - mitigated))
 
 		if(!m.combat_healthRegen_trigger) m.combat_on_regen(m)
 		if(stats_get_value(m, "health") <= 0 ) combat_on_death(m)
@@ -56,22 +58,26 @@ mob/proc
 	combat_on_regen(mob/m)
 		if(!m.combat_healthRegen_trigger)
 
-			var/sleeptime = 20 - round(stats_get_level(m, "regen") / 2)
-			if(sleeptime <= 5) sleeptime = 5
 			m.combat_healthRegen_trigger = TRUE
 
 			while(m.combat_healthRegen_trigger)
+				//if in combat, stop health regen
 				if(m.combat_inCombat) m.combat_healthRegen_trigger = FALSE
-				while(stats_get_value(m, "health") < stats_get_limit(m, "health"))
-					var/amount = stats_get_value(m, "health") + stats_get_value(m, "regen")
-					stats_set_value(m, "health", amount)
-					stats_gain_experience(m, "regen", 10)
-					sleep(sleeptime)
 
+				//delaytime for regen
+				var/sleeptime = world.time + 10 - round(stats_get_level(m, "regen") / 2)
+				if(sleeptime <= world.time) sleeptime = world.time + 5
+				
+				if(world.time >= sleeptime)
+					sleeptime = 
+					if(stats_get_value(m, "health") < stats_get_limit(m, "health"))
+						var/amount = stats_get_value(m, "health") + stats_get_value(m, "regen")
+						stats_set_value(m, "health", amount)
+						stats_gain_experience(m, "regen", 10)
 				if(m.combat_healthRegen_trigger && stats_get_value(m, "health") > stats_get_limit(m,"health"))
 					stats_set_value(stats_get_limit(m, "health"))
 					m.combat_healthRegen_trigger = !m.combat_healthRegen_trigger
-
+				sleep(tick_lag)
 
 //else
 

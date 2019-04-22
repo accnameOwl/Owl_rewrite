@@ -2,7 +2,7 @@
 
 proc
 	err(err)
-		if(err) throw EXCEPTION(err)
+		throw EXCEPTION(err)
 
 	delete(atom/a)
 		a.loc = null

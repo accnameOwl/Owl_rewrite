@@ -16,6 +16,8 @@ mob/monster
 			turf/home_loc
 
 			next_attack = 0
+
+			AreaTrigger/AreaTrigger = new(src)
 		
 		proc
 
@@ -59,7 +61,7 @@ mob/monster
 						step_rand(src)
 					sleep(chase_speed)
 					d = get_dist(src, target)
-
+					AreaTrigger.loc = locate(0,0,0)
 				attackState()
 				return 1
 			
@@ -98,6 +100,7 @@ mob/monster
 
 				if(src.loc != home_loc)
 					src.loc = home_loc
+				AreaTrigger.loc = loc
 				src.target = null
 				src.aggro_loc = null
 		
@@ -110,3 +113,8 @@ mob/monster
 		New()
 			. = ..()
 			src.home_loc = src.loc
+
+		Login()
+			if(!AreaTrigger) AreaTrigger = new(src)
+			AreaTrigger.loc = loc
+			AreaTrigger.SetBounds( (aggro_dist * world.icon_size) * 2, (aggro_dist * world.icon_size) * 2)

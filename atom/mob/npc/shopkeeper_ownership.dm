@@ -27,4 +27,3 @@ mob/npc/shopkeeper
 
 	postRead()
 		set_ownerkey(owner_key)
-

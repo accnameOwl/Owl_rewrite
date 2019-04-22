@@ -5,6 +5,9 @@ mob
 			if(_mob && location)
 				_mob.loc = location
 
+		delete(mob/m)
+			m.loc = null
+
 	proc
 		onDel()
 		preRead()

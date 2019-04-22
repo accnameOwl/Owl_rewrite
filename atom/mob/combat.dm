@@ -81,16 +81,3 @@ mob/proc
 					m.combat_healthRegen_trigger = FALSE
 
 				sleep(tick_lag * 5)
-
-//else
-
-/*Continuing*/
-
-/*@info mob/player ABILITIES*/
-mob/player
-
-
-mob
-	proc
-		delete(mob/m)
-			m.loc = null

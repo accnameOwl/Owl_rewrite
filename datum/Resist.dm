@@ -1,4 +1,4 @@
-resist
+Resist
 	var
 		name = ""
 		element = ""

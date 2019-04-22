@@ -1,12 +1,12 @@
 
 client
 	var/walk_speed = 2
-	Click(atom/clicked)
+	Click(object, location)
 		if(!clicked) return
 
-		if(get_dist(src, clicked) == 0)
+		if(get_dist(src, location) == 0)
 			return 0
 		else
-			step_to(src, t,0,0)
+			step_to(usr, location)
 
-		src << clicked
+		src << clicked + location

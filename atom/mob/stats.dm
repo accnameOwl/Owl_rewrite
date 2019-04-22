@@ -1,7 +1,7 @@
 
 mob/var
-	list/COMBAT_STATS = list()
-	Resist/resist
+	list/combat_stats = list()
+	list/resist = list()
 
 /* 
 mob/New()

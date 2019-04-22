@@ -16,7 +16,7 @@ mob/var
 		combat_dead_respawnTime = 100
 		combat_healthRegen_trigger = FALSE
 		combat_inCombat = FALSE
-	combat_stats
+
 
 mob/proc
 	combat_invisible(mob/m, flag)

@@ -46,8 +46,6 @@ mob
 		
 		proc
 			Moved(turf/oldLoc, oDir=0, osx, osy)
-				for(var/mob/monster/ai/ai in range(MAX_AGGRO_RANGE,src))
-					ai.foundTarget(src)
 
 
 

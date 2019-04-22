@@ -22,7 +22,7 @@ AreaTrigger
 
 	proc
 
-		//arguments are in pixels
+		//argument bound_ is bounds in pixels.
 		SetBounds(bound_width, bound_height)
 
 			//keep a max aggro distance for mobs,should resault in 768 pixels

@@ -40,3 +40,23 @@ player.combat_stats["health" = var/Stat("health", 100)]
 
 and mob has getters and setters for everything related to type /Stat.
 found in /static/atom/mob/stats.dm
+
+
+### /mob/npc/shopkeeper
+
+Now holds different characteristics, sutch as being able to being owned by players. 
+This will hold later significance as to having certain perks to certain shop keepers.
+
+Shopkeepers holds a /inventory/shopContents, selling a certain amount of items, *restocking over said duration.(not added yet)*
+
+
+### /mob/monster 
+
+Inventory/dropContent holds information of which items that drops from said monster when it dies.
+parent proc declaration is already in place, as to drops being automated on monsters death.
+
+It's contents are added on specific subtypes that are spawned as monsters in the world.
+example: */mob/monster/simpleMonster* 
+It's dropContent can then be given new items on simpleMonster.New() 
+
+

@@ -87,4 +87,4 @@ mob/npc
 			if(!m) return
 			flick("punch")
 			var/Damage = stats_get_value(src, "strength")
-			combat_on_damage(m, damage)
+			combat_on_damage(m, damage, src)

@@ -6,6 +6,7 @@ proc
 
 	delete(atom/a)
 		a.loc = null
+		
 	//istypes()
 	isspell(a)	return istype(a,/Spell)
 	isdamage(a)	return istype(a,/Damage)

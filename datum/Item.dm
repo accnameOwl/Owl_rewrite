@@ -47,11 +47,12 @@ item
 
 	/*Pickup mechanic*/
 	proc
-		pickup(mob/ref, item/t)
+		Pickup(mob/ref, item/t)
 			if(!ismob(ref) && !istype(t, /item )) return FALSE
 				/*Drop effects*/
 				src.loc = ref.loc
-		drop()
+		Drop(_loc)
+			src.loc = _loc 
 			drop_effect()
 
 

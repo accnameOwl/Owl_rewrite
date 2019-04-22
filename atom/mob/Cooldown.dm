@@ -26,7 +26,7 @@ mob
 			for(var/id in args)
 				. = max(cooldowns[id]||-1#INF,.)
 			return .
-
+			
 		setCooldown(id,duration,offset=1,preserve=PRESERVE_REALTIME)
 			if(!cooldowns)
 				cooldowns = list()

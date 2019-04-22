@@ -16,4 +16,4 @@ mob/monster
 
 
 		calculateDamage()
-			return
+			return damage

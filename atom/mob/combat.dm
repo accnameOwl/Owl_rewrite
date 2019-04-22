@@ -65,19 +65,22 @@ mob/proc
 				if(m.combat_inCombat) m.combat_healthRegen_trigger = FALSE
 
 				//delaytime for regen
-				var/sleeptime = world.time + 10 - round(stats_get_level(m, "regen") / 2)
-				if(sleeptime <= world.time) sleeptime = world.time + 5
+				var/sleeptime = world.time + (10 - round(stats_get_level(m, "regen") / 2))
 				
 				if(world.time >= sleeptime)
-					sleeptime = 
+
+					sleeptime = world.time + (10 - round(stats_get_level(m, "regen") / 2))
+
 					if(stats_get_value(m, "health") < stats_get_limit(m, "health"))
 						var/amount = stats_get_value(m, "health") + stats_get_value(m, "regen")
 						stats_set_value(m, "health", amount)
 						stats_gain_experience(m, "regen", 10)
+
 				if(m.combat_healthRegen_trigger && stats_get_value(m, "health") > stats_get_limit(m,"health"))
 					stats_set_value(stats_get_limit(m, "health"))
-					m.combat_healthRegen_trigger = !m.combat_healthRegen_trigger
-				sleep(tick_lag)
+					m.combat_healthRegen_trigger = FALSE
+
+				sleep(tick_lag * 5)
 
 //else
 

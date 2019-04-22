@@ -4,54 +4,61 @@
 #define SPELL_FLAG_CURVE 3
 Spell
 
-	parent_type = /atom/movable
+	parent_type = /obj
 
 	var
 		mob/source
 		mob/target
-		Damage/damage
+		damage
 
 		id
 		lifespan = 0
 		flag
+		walk_speed
 
 	proc
-
 		setSource(mob/source)
 			if(!ismob(m)) return err("[src].setSource : Spell.setSource() requires /mob type as argument")
 			src.source = source
+
 		setTarget(mob/_target)
 			if(_target) target = _target 
+
 		setDir(dir)
 			if(!dir) return FALSE
 			if(dir != "NORTH" || dir != "SOUTH" || dir != "EAST" || dir != "WEST" || dir != "NORTHEAST" || dir != "NORTHWEST" || dir != "SOUTHEAST" || dir != "SOUTHWEST") return err("Spell.setDir() : arg not corresponding to any true direction")
 			src.dir = dir
+
 		setLoc(x,y,z)
 			if(x) src.x = x
 			if(y) src.y = y
 			if(z) src.z = z
-		setDamage(Damage/damage)
-			if(!istype(damage, /Damage)) return err("[src].setDamage : Spell.setDamage() requires /Damage type as argument")
-			src.damage = damage
+
+		setDamage(damage)
+			if(!damage) err("[src] - /Spell - setDamage(damage) : damage argument was not found")
+			else
+				src.damage = damage
+
 		setLifespan(_lifespan)
 			lifespan = world.time + _lifespan
+
 		setFlag()
 			if()
+
 		onBump(atom/a)
+
 		onMove()
 			if(lifespan)
 				do ..()
 				while(lifespan >= world.time)
-				else
-					setLoc(0,0,0)
+				delete(src)
 
 	Bump(atom/a)
-		onBump(atom/a)
+		onBump(a)
 		..()
 
 	Move()
 		onMove()
-		..()
 
 
 
@@ -65,9 +72,10 @@ Spell/Example
 
 	onBump(atom/a)
 		if(ismob(a))
+
 			damage.addTarget(a)
 			damage.Damage(damage)
-		setLoc(0,0,0)
+		delete(src)
 
 
 mob/player

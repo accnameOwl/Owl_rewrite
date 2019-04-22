@@ -4,7 +4,8 @@ proc
 	err(err)
 		if(err) throw EXCEPTION(err)
 
-
+	delete(atom/a)
+		a.loc = null
 	//istypes()
 	isspell(a)	return istype(a,/Spell)
 	isdamage(a)	return istype(a,/Damage)

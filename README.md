@@ -29,6 +29,8 @@ resistance value now holds true percentage mitigation towards damage.
 
 Originally written by Ter13. Temporarly doesn't have a specific use in terms of attacking but chasing is working fine. AI was rewritten from being it's own datum saved as an AI type to any mob, instead of being polymorphic to a certain mob child type. This seemed to be a bad approach, as polymorphic code is innherited to every type instead of being a case to case demand for specific mob's.
 
+Now, monster AI gets triggered by it's area trigger, which is a seperate object type: /AreaTrigger. if a mob isn't chasing a target, the trigger area is located with the monster, but once someone Crossed() said object, it triggers ai's chainevents starting with monster.foundTarget() and is then located somehwere else untill monster has no target anymore.
+
 
 ### Stats: player, npc and monster
 

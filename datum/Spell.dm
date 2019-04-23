@@ -17,12 +17,12 @@ Spell
 		walk_speed
 
 	proc
-		setSource(mob/source)
-			if(!ismob(m)) return err("[src].setSource : Spell.setSource() requires /mob type as argument")
-			src.source = source
+		setSource(mob/_source)
+			if(!ismob(_source)) return err("[src].setSource : Spell.setSource() requires /mob type as argument")
+			src.source = _source
 
 		setTarget(mob/_target)
-			if(_target) target = _target 
+			if(_target) target = _target
 
 		setDir(dir)
 			if(!dir) return FALSE
@@ -43,9 +43,10 @@ Spell
 			lifespan = world.time + _lifespan
 
 		setFlag()
-			if()
+			return
 
 		onBump(atom/a)
+			return a
 
 		onMove()
 			if(lifespan)
@@ -71,10 +72,8 @@ Spell/Example
 		src.damage = New(src.source, _mob.stats_get_value(src.source, "intellect"))
 
 	onBump(atom/a)
-		if(ismob(a))
-
-			damage.addTarget(a)
-			damage.Damage(damage)
+//		if(ismob(a))
+			//doshit
 		delete(src)
 
 
@@ -82,7 +81,7 @@ mob/player
 	verb
 		ExampleSpell()
 			var/Spell/Example/spell = New(src)
-			spell.setTarget(src.target)
+	//		spell.setTarget(src.target)
 
 			spell.setLoc(src.x, src.y, src.z)
 			if(spell.flag == "SPELL_FLAG_DIRECTIONAL")

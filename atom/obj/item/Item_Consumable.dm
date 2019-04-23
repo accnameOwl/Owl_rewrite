@@ -3,7 +3,7 @@ Item
 	Consumable
 
 
-		var/const/list/EFFECTS = ("feast", "flask", "potion")
+		var/const/EFFECTS["feast", "flask", "potion"]
 
 		New(_effect)
 
@@ -28,9 +28,9 @@ Item/Consumable/test_potion
 	New()
 		..()
 		//add a /Stat to the consumables stat_list
-		stat_list_add(var/Stat/item_stat/strength("strenght", 10))
+		stat_list_add( "strength" = new/Item_stat("strenght", 10))
 		//add all /Stat from stat_list to wielder
 		itemStats_addTo(wielder)
 
 	Del()
-		itemStats_remoTo(wielder)
+		itemStats_remTo(wielder)

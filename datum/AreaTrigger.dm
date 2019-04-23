@@ -10,7 +10,7 @@ AreaTrigger
 
 	parent_type = /obj
 
-	var/mob/source
+	var/mob/monster/source
 
 	New(mob/_source)
 		source = _source
@@ -18,16 +18,15 @@ AreaTrigger
 	Crossed(atom/a)
 		if(isplayer(a))
 			//trigger source AI by calling foundTarget()
-			source.foundTarget(a)
+			source:foundTarget(a)
 
 	proc
 
 		//argument bound_ is bounds in pixels.
-		SetBounds(bound_width, bound_height)
+		SetBounds(w, h)
 
 			//keep a max aggro distance for mobs,should resault in 768 pixels
-			if(bound_width > MAX_AGGRO_RANGE) bound_width = MAX_AGGRO_RANGE
-			if(bound_height > MAX_AGGRO_RANGE) bound_WIDTH = MAX_AGGRO_RANGE
 
-			src.bound_width = bound_width
-			src.bound_height = bound_height
+
+			src.bound_width = w
+			src.bound_height = h

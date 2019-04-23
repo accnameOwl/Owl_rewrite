@@ -1,6 +1,6 @@
 
 client
-	var/walk_speed = 2
+	var/walkSpeed = 2
 	var/GoingSomewhere = FALSE
 	Click(object, location)
 		set waitfor=0
@@ -9,7 +9,7 @@ client
 		if(!location) err("[src] - client.Click() - could not find location")
 
 		//if client is already walking somewhere, cancle the previous loop and walk to new location
-		if(GoingSomewhere) ~GoingSomewhere
+		if(GoingSomewhere) GoingSomewhere = !GoingSomewhere
 		GoingSomewhere = TRUE
 
 		var

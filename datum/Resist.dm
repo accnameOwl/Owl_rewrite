@@ -13,31 +13,29 @@ Resist
 		src.limit = limit
 
 	proc
-		Add(resist/r, value)
+		Add(Resist/r, value)
 			if(!r && !value) return FALSE
 			r:value = r:value + value
-		Subtract(resist/r, value)
+		Subtract(Resist/r, value)
 			if(!r && !value) return FALSE
 			r.value = r:value - value
-			
+
 
 	proc
-		get_name(resist/r)
+		get_name(Resist/r)
 			return r:name
-		get_element(resist/r)
+		get_element(Resist/r)
 			return r:element
-		get_value(resist/r)
+		get_value(Resist/r)
 			return r:value
-		get_limit(resist/r)
+		get_limit(Resist/r)
 			return r:limit
-		get_percent(resist/r)
-			return calc_percent(r)
 
-		set_name(resist/r, name)
+		set_name(Resist/r, name)
 			r:name = name
-		set_element(resist/r, element)
+		set_element(Resist/r, element)
 			r:element = element
-		set_value(resist/r, value)
+		set_value(Resist/r, value)
 			r:value = value
-		set_limit(resist/r, limit)
+		set_limit(Resist/r, limit)
 			r:limit = limit

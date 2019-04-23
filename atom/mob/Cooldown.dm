@@ -1,8 +1,6 @@
-#ifndef TER13_STDLIB
-	#warn CooldownLib depends on Ter13.StdLib. StdLib not present. CooldownLib will not be included.
-#else
-	#ifndef TER13_COOLDOWNLIB
-		#define TER13_COOLDOWNLIB "version 2.0"
+#define PRESERVE_NONE 0
+#define PRESERVE_WORLDTIME 1
+#define PRESERVE_REALTIME 2
 
 mob
 	var
@@ -26,7 +24,7 @@ mob
 			for(var/id in args)
 				. = max(cooldowns[id]||-1#INF,.)
 			return .
-			
+
 		setCooldown(id,duration,offset=1,preserve=PRESERVE_REALTIME)
 			if(!cooldowns)
 				cooldowns = list()
@@ -55,7 +53,3 @@ mob
 		if(!cdl.len)
 			cooldowns = null
 			cooldown_preserve = null
-
-	#endif
-
-#endif

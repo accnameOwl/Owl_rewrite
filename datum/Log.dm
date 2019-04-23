@@ -11,15 +11,15 @@ Log
 
 	var tmp
 		text
-		File/directory
+		File/file
 
 	New(text, flag=LOG_FILE_WORLD)
 		if(flag != LOG_FILE_WORLD || flag != LOG_FILE_COMBAT || flag != LOG_FILE_CLIENT) return
 		src.text = text
-		src.directory = flag
+		file = flag
 
 		Write()
-	
+
 	proc
 		Write()
 			if(!directory) return

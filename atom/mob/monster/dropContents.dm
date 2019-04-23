@@ -2,7 +2,7 @@ mob/monster
 	/*combat*/
 	var/npc_invincible = FALSE
 
-	COMBAT_ON_DEATH()
+	combat_on_death()
 		if(npc_invincible) return
 		if(length(dropContents))
 			for(var/Item/item in dropContents)
@@ -16,10 +16,10 @@ mob/monster
 
 	proc
 		Clear_dropContents()
-			if(!length(LootList)) return null
+			if(!length(dropContents)) return null
 			dropContents = null
 
 		//return TRUE if any items exists in droplist
 		Check_dropContents()
-			if(length(LootDropList)) 
+			if(length(dropContents))
 				return TRUE

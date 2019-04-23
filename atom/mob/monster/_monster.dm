@@ -1,19 +1,9 @@
 mob/monster
 
-	var
-		list
-			combat_stats = {(
-				"health" = var/Stat("health", 100),
-				"stamina" = var/Stat("stamina", 100),
-				"intellect" = var/Stat("intellect", 10),
-				"strength" = var/Stat("strength", 10),
-				"agility" = var/Stat("agility", 10)
-			)}
-
-	proc
-
-		attack(mob/player/p)
-
-
-		calculateDamage()
-			return damage
+	combat_stats = list(\
+		"health" = new/Stat("health", 100),
+		"stamina" = new/Stat("stamina", 100),
+		"intellect" = new/Stat("intellect", 10),
+		"strength" = new/Stat("strength", 10),
+		"agility" = new/Stat("agility", 10),
+	)

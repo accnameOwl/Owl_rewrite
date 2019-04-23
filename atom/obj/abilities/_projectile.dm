@@ -14,10 +14,10 @@ projectile
 	Bump(atom/a)
 		if(istype(a, /mob/player))
 			var/mob/_mob = a
-			_mob.COMBAT_ON_DAMAGE(a, src.calculate_damage())
+			_mob.combat_on_damage(a, src.calculate_damage())
 		if(istype(a, /mob/npc))
 			var/mob/_mob = a
-			_mob.COMBAT_ON_DAMAGE(a, src.calculate_damage())
+			_mob.combat_on_damage(a, src.calculate_damage())
 		..()
 
 	Move()

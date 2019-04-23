@@ -50,7 +50,7 @@ mob/proc
 			m.combat_inCombat = TRUE
 		var/Resist/r = m.resist
 		var/mitigated = damage * (r.get_value()/100)
-		m.stats_set_value( round(m.stats_get_value("health") - (damage - mitigated))
+		m.stats_set_value( round(m.stats_get_value("health") - (damage - mitigated)))
 
 		if(!m.combat_healthRegen_trigger) m.combat_on_regen()
 		if(m.stats_get_value("health") <= 0 ) m.combat_on_death()
@@ -66,7 +66,7 @@ mob/proc
 
 				//delaytime for regen
 				var/sleeptime = world.time + (10 - round(m.stats_get_level("regen") / 2))
-				
+
 				if(world.time >= sleeptime)
 
 					sleeptime = world.time + (10 - round(m.stats_get_level("regen") / 2))
@@ -80,4 +80,4 @@ mob/proc
 					m.stats_set_value(m.stats_get_limit("health"))
 					m.combat_healthRegen_trigger = FALSE
 
-				sleep(tick_lag * 5)
+				sleep(world.tick_lag * 5)

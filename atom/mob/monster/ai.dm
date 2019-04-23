@@ -1,7 +1,7 @@
 #define MAX_AGGRO_RANGE 12
 
 //Originally created by Ter
-//monster ai. 
+//monster ai.
 //AI detection happens in /mob/player/Moved() - File: _player.dm
 
 mob/monster
@@ -17,8 +17,8 @@ mob/monster
 
 			next_attack = 0
 
-			AreaTrigger/AreaTrigger = new(src)
-		
+			AreaTrigger/AreaTrigger
+
 		proc
 
 			foundTarget(var/mob/player/p)
@@ -64,7 +64,7 @@ mob/monster
 					AreaTrigger.loc = locate(0,0,0)
 				attackState()
 				return 1
-			
+
 			attackState()
 				set waitfor = 0
 				var/d
@@ -79,18 +79,18 @@ mob/monster
 						. = step_away(src, target)
 						if(!.)
 							step_rand(src)
-						
+
 					if(world.time >= next_attack)
 						attack()
 					sleep(chase_speed)
-				
+
 				src.lostTarget()
-			
+
 			resetState()
 				set waitfor = 0
 				var
 					returnTime = world.time + get_dist(src, home_loc) * (3 + chase_speed)
-				
+
 				while(world.time < returnTime && src.loc != home_loc)
 					. = step(src, get_dir(src, home_loc))
 					if(!.)
@@ -103,7 +103,7 @@ mob/monster
 				AreaTrigger.loc = loc
 				src.target = null
 				src.aggro_loc = null
-		
+
 		Move(turf/newLoc, Dir = 0, step_x = 0, step_y = 0)
 			var/d = Dir & Dir-1
 			if(d)
@@ -117,4 +117,4 @@ mob/monster
 		Login()
 			if(!AreaTrigger) AreaTrigger = new(src)
 			AreaTrigger.loc = loc
-			AreaTrigger.SetBounds( (aggro_dist * world.icon_size) * 2, (aggro_dist * world.icon_size) * 2)
+			AreaTrigger.SetBounds( (aggro_dist * world.icon_size)*2, (aggro_dist * world.icon_size)*2)

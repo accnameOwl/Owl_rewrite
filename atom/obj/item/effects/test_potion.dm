@@ -17,6 +17,6 @@ Effect
 		Del(src)
 
 	Del()
-		user.effects[src] = null
+//		user.effects[src] = null
 
 

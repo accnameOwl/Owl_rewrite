@@ -15,8 +15,8 @@ mob/npc/shopkeeper
 
 			if(key)
 				if(!shopkeeper_owners[key])
-					shopkeeper_owners[key] = list()
-				shopkeeper_owners[key] += src
+					shopkeeper_owners[key] = list()
+				shopkeeper_owners[key] += src
 
 	New()
 		..()

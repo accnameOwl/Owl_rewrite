@@ -20,17 +20,15 @@ mob
 		bound_height = 24
 		bound_width = 24
 
-		var
-			list
-				combat_stats = {(
-					"health" = var/Stat("health",10),
-					"regen" = var/Stat("regen", 1),
-					"mana" = var/Stat("mana", 3),
+		combat_stats = list(\
+			"health" = new/Stat("health",10),
+			"regen" = new/Stat("regen", 1),
+			"mana" = new/Stat("mana", 3),
 
-					"strength" = var/Stat("strength", 1),
-					"intellect" = var/Stat("intellect", 1),
-					"agility" = var/Stat("agility", 1)
-				)}
+			"strength" = new/Stat("strength", 1),
+			"intellect" = new/Stat("intellect", 1),
+			"agility" = new/Stat("agility", 1)
+		)
 
 		//ai detection for monsters in MAX_AGGRO_RANGE
 		//this makes monsters register players in the area, and allows them to respond accordingly
@@ -43,7 +41,7 @@ mob
 			. = ..(newLoc, Dir, step_x, step_y)
 			if(.)
 				Moved(oldLoc, oDir, osx, osy)
-		
+
 		proc
 			Moved(turf/oldLoc, oDir=0, osx, osy)
 

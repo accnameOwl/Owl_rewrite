@@ -9,7 +9,7 @@ item
 		list/EQUIPMENT_RARITY = list(1,2,3)
 		list/EQUIPMENT_PIECES = list("head", "chest", "legs", "shield", "sword",)
 
-		resist/resist = new()
+		Resist/resist = new()
 
 	New(name, rarity, equipment)
 		src.name = name
@@ -38,7 +38,7 @@ item
 		set_equipment()
 		set_resist(resist/r)
 		get_name() 	return name
-		get_rarity()	return rarity 
+		get_rarity()	return rarity
 		get_equipment() return equipment
 		get_resist()	return resist
 
@@ -52,7 +52,7 @@ item
 				/*Drop effects*/
 				src.loc = ref.loc
 		Drop(_loc)
-			src.loc = _loc 
+			src.loc = _loc
 			drop_effect()
 
 

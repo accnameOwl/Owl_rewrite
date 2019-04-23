@@ -1,2 +1,2 @@
-item_stat
+Item_stat
 	parent_type = /Stat

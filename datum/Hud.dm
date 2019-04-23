@@ -1,4 +1,4 @@
-#define HUD_UPDATE()\
+
 
 Hud
 
@@ -20,11 +20,11 @@ Hud
 
 		while(src)
 			frameUpdate()
-			sleep(tick_lag*10)
+			sleep(world.tick_lag*10)
 
 	proc
 		frameUpdate()
-			
+
 
 		setChild(Hud/hud,child)
 			hud.child[child] = child

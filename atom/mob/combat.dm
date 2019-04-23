@@ -19,15 +19,15 @@ mob/var
 
 
 mob/proc
-	combat_invisible(mob/m, flag)
-		if(flag == null) return m.invisibility
-		if(flag == TRUE) m.invisibility = 100
-		if(flag == FALSE) m.invisibility = 0
+	combat_invisible(flag)
+		if(!length(args)) return src.invisibility
+		if(flag == TRUE) src.invisibility = 100
+		if(flag == FALSE) src.invisibility = 0
 	combat_on_death(mob/m)
 		if(!m) return FALSE
 		//turn invisible
-		if(m.COMBAT_TURNINVISIBLEONDEATH) combat_invisible(m, TRUE)
-		else m.combat_invisible(m, FALSE)
+		if(m.COMBAT_TURNINVISIBLEONDEATH) m.combat_invisible(TRUE)
+		else m.combat_invisible(FALSE)
 		m.density = 0
 		m.combat_dead = TRUE
 		if(m.combat_dead == TRUE && m.combat_dead_canRespawn) spawn(m.combat_dead_respawnTime) m.combat_on_respawn()
@@ -42,7 +42,7 @@ mob/proc
 		if(m.combat_dead) m.combat_dead = FALSE
 
 		if(m.combat_dead_seeInvisible) m.combat_dead_seeInvisible = FALSE
-		stats_set_value(m, "health",stats_get_limit(m, "health"))
+		m.stats_set_value("health",m.stats_get_limit("health"))
 
 	combat_on_damage(mob/m, damage, ref)
 		if(istype(ref, /mob/player) || istype(ref, /mob/npc))
@@ -50,10 +50,10 @@ mob/proc
 			m.combat_inCombat = TRUE
 		var/Resist/r = m.resist
 		var/mitigated = damage * (r.get_value()/100)
-		stats_set_value( round(stats_get_value(m,"health") - (damage - mitigated))
+		m.stats_set_value( round(m.stats_get_value("health") - (damage - mitigated))
 
-		if(!m.combat_healthRegen_trigger) m.combat_on_regen(m)
-		if(stats_get_value(m, "health") <= 0 ) combat_on_death(m)
+		if(!m.combat_healthRegen_trigger) m.combat_on_regen()
+		if(m.stats_get_value("health") <= 0 ) m.combat_on_death()
 
 	combat_on_regen(mob/m)
 		if(!m.combat_healthRegen_trigger)
@@ -65,19 +65,19 @@ mob/proc
 				if(m.combat_inCombat) m.combat_healthRegen_trigger = FALSE
 
 				//delaytime for regen
-				var/sleeptime = world.time + (10 - round(stats_get_level(m, "regen") / 2))
+				var/sleeptime = world.time + (10 - round(m.stats_get_level("regen") / 2))
 				
 				if(world.time >= sleeptime)
 
-					sleeptime = world.time + (10 - round(stats_get_level(m, "regen") / 2))
+					sleeptime = world.time + (10 - round(m.stats_get_level("regen") / 2))
 
-					if(stats_get_value(m, "health") < stats_get_limit(m, "health"))
-						var/amount = stats_get_value(m, "health") + stats_get_value(m, "regen")
-						stats_set_value(m, "health", amount)
-						stats_gain_experience(m, "regen", 10)
+					if(stats_get_value(m, "health") < m.stats_get_limit("health"))
+						var/amount = m.stats_get_value("health") + m.stats_get_value("regen")
+						m.stats_set_value("health", amount)
+						m.stats_gain_experience("regen", 10)
 
-				if(m.combat_healthRegen_trigger && stats_get_value(m, "health") > stats_get_limit(m,"health"))
-					stats_set_value(stats_get_limit(m, "health"))
+				if(m.combat_healthRegen_trigger && m.stats_get_value("health") > m.stats_get_limit("health"))
+					m.stats_set_value(m.stats_get_limit("health"))
 					m.combat_healthRegen_trigger = FALSE
 
 				sleep(tick_lag * 5)
